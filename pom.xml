@@ -47,14 +47,26 @@
                     <goal>shade</goal>
                   </goals>
                   <configuration>
+                   <artifactSet>
+                       <includes>
+                           <include>io.netty</include>
+                           <include>io.projectreactor</include>
+                           <include>io.projectreactor.netty</include>
+                           <include>org.reactivestreams</include>
+                       </includes>
+                   </artifactSet>
                     <relocations>
                       <relocation>
                         <pattern>io.netty</pattern>
                         <shadedPattern>com.easemob.im.shaded.io.netty</shadedPattern>
                       </relocation>
                       <relocation>
-                        <pattern>io.projectreactor</pattern>
-                        <shadedPattern>com.easemob.im.shaded.io.projectreactor</shadedPattern>
+                        <pattern>reactor</pattern>
+                        <shadedPattern>com.easemob.im.shaded.reactor</shadedPattern>
+                      </relocation>
+                      <relocation>
+                        <pattern>org.reactivestreams</pattern>
+                        <shadedPattern>com.easemob.im.shaded.org.reactivestreams</shadedPattern>
                       </relocation>
                     </relocations>
                   </configuration>
