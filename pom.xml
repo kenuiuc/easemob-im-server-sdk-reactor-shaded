@@ -46,6 +46,18 @@
                   <goals>
                     <goal>shade</goal>
                   </goals>
+                  <configuration>
+                    <relocations>
+                      <relocation>
+                        <pattern>io.netty</pattern>
+                        <shadedPattern>com.easemob.im.shaded.io.netty</shadedPattern>
+                      </relocation>
+                      <relocation>
+                        <pattern>io.projectreactor</pattern>
+                        <shadedPattern>com.easemob.im.shaded.io.projectreactor</shadedPattern>
+                      </relocation>
+                    </relocations>
+                  </configuration>
                 </execution>
               </executions>
             </plugin>
