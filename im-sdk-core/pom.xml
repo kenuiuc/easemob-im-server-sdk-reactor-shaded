@@ -5,13 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.easemob.im</groupId>
-    <artifactId>im-sdk-core</artifactId>
-    <version>0.3.6-SNAPSHOT</version>
+    <artifactId>im-sdk-core-reactor-shaded</artifactId>
+    <version>0.0.1</version>
     <description>Easemob IM SDK Core</description>
     <parent>
         <groupId>com.easemob.im</groupId>
-        <artifactId>im-sdk-parent</artifactId>
-        <version>0.3.6-SNAPSHOT</version>
+        <artifactId>im-sdk-reactor-shaded-parent</artifactId>
+        <version>0.0.1</version>
     </parent>
 
     <properties>
