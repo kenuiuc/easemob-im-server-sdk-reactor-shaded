@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <parent>
-    <artifactId>im-sdk-parent</artifactId>
+    <artifactId>im-sdk-reactor-shaded-parent</artifactId>
     <groupId>com.easemob.im</groupId>
-    <version>0.3.6-SNAPSHOT</version>
+    <version>0.0.1</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.easemob.im</groupId>
-  <artifactId>im-sdk-core</artifactId>
-  <version>0.3.6-SNAPSHOT</version>
+  <artifactId>im-sdk-core-reactor-shaded</artifactId>
+  <version>0.0.1</version>
   <description>Easemob IM SDK Core</description>
   <build>
     <plugins>
