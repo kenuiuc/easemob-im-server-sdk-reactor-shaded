@@ -17,7 +17,6 @@
 
     <modules>
         <module>im-sdk-core</module>
-        <module>im-sdk-cli</module>
     </modules>
 
     <properties>
