@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.easemob.im</groupId>
-    <artifactId>im-sdk-parent</artifactId>
-    <version>0.3.6-SNAPSHOT</version>
+    <artifactId>im-sdk-reactor-shaded-parent</artifactId>
+    <version>0.0.3-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>Easemob IM SDK for Java</name>
@@ -16,8 +16,7 @@
     </description>
 
     <modules>
-        <module>im-sdk-core</module>
-        <module>im-sdk-cli</module>
+        <module>im-sdk-core-reactor-shaded</module>
     </modules>
 
     <properties>
@@ -37,6 +36,42 @@
 
     <build>
         <plugins>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-shade-plugin</artifactId>
+              <version>3.2.4</version>
+              <executions>
+                <execution>
+                  <goals>
+                    <goal>shade</goal>
+                  </goals>
+                  <configuration>
+                   <artifactSet>
+                       <includes>
+                           <include>io.netty</include>
+                           <include>io.projectreactor</include>
+                           <include>io.projectreactor.netty</include>
+                           <include>org.reactivestreams</include>
+                       </includes>
+                   </artifactSet>
+                    <relocations>
+                      <relocation>
+                        <pattern>io.netty</pattern>
+                        <shadedPattern>com.easemob.im.shaded.io.netty</shadedPattern>
+                      </relocation>
+                      <relocation>
+                        <pattern>reactor</pattern>
+                        <shadedPattern>com.easemob.im.shaded.reactor</shadedPattern>
+                      </relocation>
+                      <relocation>
+                        <pattern>org.reactivestreams</pattern>
+                        <shadedPattern>com.easemob.im.shaded.org.reactivestreams</shadedPattern>
+                      </relocation>
+                    </relocations>
+                  </configuration>
+                </execution>
+              </executions>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
