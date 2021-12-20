@@ -7,15 +7,47 @@
 ## 依赖
 
 - Java 1.8
+- [Reactor](https://projectreactor.io)(io.projectreactor:reactor-bom:2020.0.4)
 
 ## 安装
+
+如果你的项目使用Maven构建并且spring boot是2.4.3以上版本，在pom.xml中添加下面代码即可：
 
 ``` xml
 <dependency>
     <groupId>com.easemob.im</groupId>
-    <artifactId>im-sdk-core-reactor-shaded</artifactId>
-    <version>0.0.2</version>
+    <artifactId>im-sdk-core</artifactId>
+    <version>0.3.6</version>
 </dependency>
+```
+
+如果你使用的spring-boot是2.4.3以下版本的，则还需要在pom.xml中添加:
+
+``` xml
+<dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-bom</artifactId>
+            <version>4.1.59.Final</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.projectreactor</groupId>
+            <artifactId>reactor-bom</artifactId>
+            <version>2020.0.4</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+```
+
+如果你的项目使用Gradle构建，可以在build.grade中添加下面代码：
+
+``` gradle
+implementation 'com.easemob.im:im-sdk-core:0.3.6'
 ```
 
 ## 准备
@@ -106,6 +138,10 @@ service.user().create(username, password).block();
 ```
 
 API的返回值是响应式的，如果希望阻塞，可以使用上面例子中的block()。
+
+## DEMO
+
+可以参考[im-sdk-cli](https://github.com/easemob/easemob-im-server-sdk/tree/master/im-sdk-cli) ，这是一个使用该SDK构建的CLI程序。
 
 ## 参考
 
